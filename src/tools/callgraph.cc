@@ -22,6 +22,8 @@
 #include <set>
 #include <string>
 #include <vector>
+#include <time.h>
+#include <stdio.h>
 
 #include "absl/strings/str_format.h"
 
@@ -140,7 +142,14 @@ int Tool::Run() {
     Format(&std::cerr, "Unknown function %s.\n", *options.function);
     return 1;
   }
+  printf("start calculating call graph\n");
+  clock_t before, after;
+  double time_consumption;
+  before = clock();
   CalculateCallGraph();
+  after = clock();
+  time_consumption = ((double) (end - start)) / CLOCKS_PER_SEC;
+  printf("calculation took %f seconds\n", time_consumption)
   WriteDotFile();
   return 0;
 }

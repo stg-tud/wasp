@@ -20,6 +20,8 @@
 #include <map>
 #include <set>
 #include <string>
+#include <time.h>
+#include <stdio.h>
 
 #include "absl/strings/str_format.h"
 
@@ -220,10 +222,18 @@ int Tool::Run() {
     Format(&std::cerr, "Invalid function index %d\n", *index_opt);
     return 1;
   }
-  CalculateDFG(*ft_opt, *code_opt);
-  RemoveTrivialPhis();
-  WriteDotFile();
-  return 0;
+
+    printf("start calculating dfg\n");
+    clock_t before, after;
+    double time_consumption;
+    before = clock();
+    CalculateDFG(*ft_opt, *code_opt);
+    after = clock();
+    time_consumption = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("calculation took %f seconds\n", time_consumption)
+    RemoveTrivialPhis();
+    WriteDotFile();
+    return 0;
 }
 
 void Tool::DoPrepass() {

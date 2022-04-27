@@ -181,7 +181,7 @@ int Tool::Run() {
   CalculateCFG(*code_opt);
   after = clock();
   time_consumption = ((double) (after - before)) / CLOCKS_PER_SEC;
-  printf("calculation took %f seconds\n", time_consumption)
+  printf("calculation took %f seconds\n", time_consumption);
 
   RemoveEmptyBasicBlocks();
   WriteDotFile();

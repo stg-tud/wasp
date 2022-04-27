@@ -180,7 +180,7 @@ int Tool::Run() {
   before = clock();
   CalculateCFG(*code_opt);
   after = clock();
-  time_consumption = ((double) (end - start)) / CLOCKS_PER_SEC;
+  time_consumption = ((double) (after - before)) / CLOCKS_PER_SEC;
   printf("calculation took %f seconds\n", time_consumption)
 
   RemoveEmptyBasicBlocks();

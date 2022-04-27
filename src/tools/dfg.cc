@@ -230,7 +230,7 @@ int Tool::Run() {
     CalculateDFG(*ft_opt, *code_opt);
     after = clock();
     time_consumption = ((double) (after - before)) / CLOCKS_PER_SEC;
-    printf("calculation took %f seconds\n", time_consumption)
+    printf("calculation took %f seconds\n", time_consumption);
     RemoveTrivialPhis();
     WriteDotFile();
     return 0;

@@ -149,7 +149,7 @@ int Tool::Run() {
   CalculateCallGraph();
   after = clock();
   time_consumption = ((double) (after - before)) / CLOCKS_PER_SEC;
-  printf("calculation took %f seconds\n", time_consumption)
+  printf("calculation took %f seconds\n", time_consumption);
   WriteDotFile();
   return 0;
 }
